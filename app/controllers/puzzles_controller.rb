@@ -1,7 +1,7 @@
 class PuzzlesController < ApplicationController
 
   def create
-    @puzzle = Unirest.post("http://localhost:3000/puzzle.json",
+    @puzzle = Unirest.post("http://localhost:3000/api/v1/puzzles.json",
                   headers: {"Accept" => "application/json"},
                   parameters: { :puzzle => 
                                 {
