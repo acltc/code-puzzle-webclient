@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
   resources :puzzles
-=======
-resources :puzzles
 
->>>>>>> 04bc947aef7e616578650c5ed39a3ac67f3aa3f6
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
