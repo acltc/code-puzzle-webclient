@@ -1,6 +1,16 @@
 <h1> <%=@puzzle.name%></h1>
 
-
 <h3><%=@puzzle.instructions %></h3>
+
+<div class="form">
+  <%= form_tag("/puzzles/#{@puzzle.id}/check_solution") do %>
+    <fieldset>
+      <%= label_tag :solution %>
+      <%= text_field_tag :solution %>
+
+      <%= submit_tag "Check Solution" %>
+    </fieldset>
+  <% end %>
+</div>
 
 
