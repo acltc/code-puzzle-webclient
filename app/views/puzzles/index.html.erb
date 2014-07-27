@@ -1,0 +1,20 @@
+<h1>All Amazing Puzzles!</h1>
+
+<% @puzzles.each do |puzzle| %>
+
+  <ul>
+    <li>
+
+      <h2><%= puzzle["name"] %></h2>
+      
+
+      <h3>Instructions</h3>
+      <%= puzzle["instructions"] %>
+
+      <h3>Solution</h3>
+      <%= puzzle["solution"] %>
+
+    </li>
+  </ul>
+
+<% end %>
