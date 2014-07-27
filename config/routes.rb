@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
 
-  root 'pages#home'
-
+  root 'puzzles#home'
 
 resources :puzzles
+get '/search' => 'pages#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
