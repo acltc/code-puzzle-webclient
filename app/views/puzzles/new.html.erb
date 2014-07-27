@@ -1,0 +1,19 @@
+<h3>let's create a puzzle!</h3>
+
+
+<div class="form">
+  <%= form_tag(puzzles_path) do %>
+    <fieldset>
+      <%= label_tag :name %>
+      <%= text_field_tag :name %><br/>
+
+      <%= label_tag :instructions %>
+      <%= text_field_tag :instructions %><br/>
+
+      <%= label_tag :solution %>
+      <%= text_field_tag :solution %><br/>
+
+      <%= submit_tag "Create Puzzle" %>
+    </fieldset>
+  <% end %>
+</div>

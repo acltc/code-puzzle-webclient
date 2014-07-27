@@ -12,4 +12,8 @@ require 'rails_helper'
 # end
 RSpec.describe PuzzlesHelper, :type => :helper do
   pending "add some examples to (or delete) #{__FILE__}"
+<<<<<<< HEAD
+
+=======
+>>>>>>> 04bc947aef7e616578650c5ed39a3ac67f3aa3f6
 end
