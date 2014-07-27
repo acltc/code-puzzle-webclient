@@ -7,6 +7,8 @@ gem 'mysql2'
 
 gem 'unirest', '1.1.2'
 
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass'
