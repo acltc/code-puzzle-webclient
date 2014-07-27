@@ -1,0 +1,15 @@
+<div id="hometitle">
+<h1>Welcome to Puzzler!</h1>
+</div>
+
+<div id="search">
+<%= form_tag("/puzzles", method: "get") do %>
+<br>
+  <%= label_tag(:q, "Search puzzles here:") %>
+  <br>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Go") %>
+<% end %>
+</form> 
+</div>
+
