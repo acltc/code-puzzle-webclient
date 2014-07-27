@@ -2,15 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#hometitle   
-h1 {
+#hometitle h1 {
   font-size: 75px;
   font-weight: bold;
   color: #8ec641;
   text-align: center;
 }
 
-#backgroundimage
 body {
   background-image: image-url("pieces.png");
   background-attachment:fixed;
