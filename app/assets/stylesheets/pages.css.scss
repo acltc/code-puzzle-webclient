@@ -10,8 +10,13 @@ h1 {
   text-align: center;
 }
 
+#backgroundimage
 body {
   background-image: image-url("pieces.png");
   background-attachment:fixed;
   background-position: right; 
+}
+
+#search {
+  margin-left: 550px;
 }
