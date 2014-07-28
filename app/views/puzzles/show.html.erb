@@ -6,7 +6,18 @@
   <%= form_tag("/puzzles/#{@puzzle.id}/check_solution") do %>
     <fieldset>
       <%= label_tag :solution %>
-      <%= text_area_tag :solution %>
+      <%= text_field_tag :solution %>
+
+      <%= submit_tag "Check Solution" %>
+    </fieldset>
+  <% end %>
+</div>
+
+<div class="form">
+  <%= form_tag("/puzzles/#{@puzzle.id}/check_code_solution") do %>
+    <fieldset>
+      <%= label_tag :code_solution %>
+      <%= text_area_tag :code_solution %>
 
       <%= submit_tag "Check Solution" %>
     </fieldset>

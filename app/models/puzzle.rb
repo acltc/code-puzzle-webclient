@@ -1,5 +1,5 @@
 class Puzzle
-  attr_accessor :id, :name, :instructions, :solution. :code_solution
+  attr_accessor :id, :name, :instructions, :solution, :code_solution
 
   def initialize(attribute_hash)
     @id = attribute_hash["id"]
@@ -9,7 +9,9 @@ class Puzzle
     end  
 
   def solution_correct?
-    if code_solution
+    @code_solution = eval(code_solution) 
+    hash = Unirest.get("http://localhost:3000/api/v1/puzzles/solutions/#{params[:id]}.json?solution=#{@code_solution}", :headers => {"Accept" => "application/json"}).body
+    return hash["response"].downcase == "correct"
   end
 
  def self.find(id)
