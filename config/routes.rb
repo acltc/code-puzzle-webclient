@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'puzzles#home'
+  resources :puzzles
 
-resources :puzzles
-get '/search' => 'pages#search'
+  post 'puzzles/:id/check_solution' => 'puzzles#check_solution'
+
+  get '/search' => 'pages#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
