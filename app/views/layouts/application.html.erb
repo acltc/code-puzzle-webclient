@@ -40,8 +40,14 @@
   </nav>
 
   <div class="container-fluid">
+    <% flash.each do |name, message| %>
+      <div class="alert alert-<%= name %>">
+        <%= message %>
+      </div>
+    <% end %>
 
-<%= yield %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
