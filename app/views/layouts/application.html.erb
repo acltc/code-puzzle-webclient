@@ -23,7 +23,6 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        
         <ul class="nav navbar-nav navbar-right">
           <li><a href="http://localhost:3000/users/sign_up">Sign In</a></li>
           <li class="dropdown">
@@ -41,8 +40,14 @@
   </nav>
 
   <div class="container-fluid">
+    <% flash.each do |name, message| %>
+      <div class="alert alert-<%= name %>">
+        <%= message %>
+      </div>
+    <% end %>
 
-<%= yield %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
