@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :puzzles
 
   post 'puzzles/:id/check_solution' => 'puzzles#check_solution'
+  post 'puzzles/:id/check_code_solution' => 'puzzles#check_code_solution'
 
   get '/search' => 'pages#search'
 
