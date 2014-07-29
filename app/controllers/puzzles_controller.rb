@@ -31,8 +31,10 @@ class PuzzlesController < ApplicationController
     hash = Unirest.get("http://localhost:3000/api/v1/puzzles/solutions/#{params[:id]}.json?solution=#{params[:solution]}", :headers => {"Accept" => "application/json"}).body
     if hash["response"].downcase == "correct"
       flash[:success] = "That's the correct answer!"
+      TrackSuccess.create(:user_id=> current_user.id, :puzzle_id => params[:id], :success => true)
     elsif hash["response"].downcase == "incorrect"
       flash[:danger] = "That's the wrong answer. Try again!"
+      TrackSuccess.create(:user_id=> current_user.id, :puzzle_id => params[:id], :success => false)
     else
       flash[:notice] = "Something went wrong. Sorry!"
     end
