@@ -1,4 +1,5 @@
 class Puzzle
+
   attr_accessor :id, :name, :instructions, :solution, :code_solution
 
   def initialize(attribute_hash)
