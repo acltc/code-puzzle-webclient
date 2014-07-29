@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727193936) do
+ActiveRecord::Schema.define(version: 20140728234825) do
+
+  create_table "track_successes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "puzzle_id"
+    t.boolean  "success"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
