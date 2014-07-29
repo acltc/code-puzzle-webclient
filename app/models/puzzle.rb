@@ -20,4 +20,36 @@ class Puzzle
     return Puzzle.new(hash)
   end
 
+  def self.all
+    array = Unirest.get("http://localhost:3000/api/v1/puzzles.json", headers:{ "Accept" => "application/json" }).body
+    puzzles = []
+    array.each do |puzzle|
+      puzzles << Puzzle.new(puzzle)
+    end
+    return puzzles
+  end
+
+  def self.search(search_term)
+    url = "http://localhost:3000/api/v1/puzzles.json"
+    url = url + "?q=#{search_term}"
+    array = Unirest.get(url, headers:{ "Accept" => "application/json" }).body
+    puzzles = []
+    array.each do |puzzle|
+      puzzles << Puzzle.new(puzzle)
+    end
+    return puzzles
+  end
+
+  def diff
+    attempts = TrackSuccess.where(:puzzle_id => self.id).count.to_f
+    success = TrackSuccess.where(:puzzle_id => self.id, :success => true).count.to_f
+    if attempts == 0
+      return 0
+    else 
+      diff = success / attempts
+        diff =diff * 100
+        return diff.to_i
+    end
+  end
+
 end

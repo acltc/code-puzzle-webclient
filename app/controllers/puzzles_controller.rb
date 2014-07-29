@@ -9,9 +9,11 @@ class PuzzlesController < ApplicationController
    end
 
   def index
-    url = "http://localhost:3000/api/v1/puzzles.json"
-    url = url + "?q=#{params[:q]}" if params[:q]
-    @puzzles = Unirest.get(url, :headers => {"Accept" => "application/json"}).body
+    if params[:q]
+      @puzzles = Puzzle.search(params[:q])
+    else
+      @puzzles = Puzzle.all      
+    end
   end
 
   def create
@@ -54,6 +56,8 @@ class PuzzlesController < ApplicationController
     end
     redirect_to puzzle_path(params[:id])
   end
+
+
 
 end
 
