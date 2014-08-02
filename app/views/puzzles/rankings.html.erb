@@ -1,0 +1,21 @@
+<div id="rankingstitle">
+<h1>Rankings</h1>
+</div>
+<br>
+<h2 class="center">See how you stack up against our puzzling-est puzzlers!</h2>
+<br>
+
+<table class="table table-striped">
+    <tr>
+      <th>Username (first 5 chars of email)</th>
+      <th>Number of Puzzles Conquered</th>
+      <th>Average Difficulty of Puzzles Conquered</th>
+    </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= user.conquer_count %></td>
+      <td><%= user.avg_puzzle_diff %></td>
+    </tr>   
+  <%end %>
+</table>

@@ -18,6 +18,10 @@
   @include green-titles;
 }
 
+#rankingstitle h1{
+  @include green-titles;
+}
+
 body {
   background-image: image-url("pieces.png");
   background-attachment:fixed;
