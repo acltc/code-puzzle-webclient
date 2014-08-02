@@ -3,9 +3,9 @@
 <h1 class="title"><%=@puzzle.name%></h1>
 <h3 class="difficulty"> Puzzle Difficulty: <%= @puzzle.diff %><h3>
 <% if @puzzle.conquered?(current_user.id) %>
-  <h4>You've solved this puzzle before.<h4>
+  <h4 class="center">You've solved this puzzle before.<h4>
 <% else %>
-  <h4>You haven't solved this puzzle yet. No time like the present!</h4>
+  <h4 class="center">You haven't solved this puzzle yet. No time like the present!</h4>
 <% end %>
 
 <div id="puzzle-directions">

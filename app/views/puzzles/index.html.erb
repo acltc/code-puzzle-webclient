@@ -4,7 +4,7 @@
 <br>
 
 <% if user_signed_in?  %>
-  <h1> You've completed <%= current_user.conquer_count %> puzzles. Make it <%=current_user.conquer_count + 1%> today.</h1>
+  <h1 class="center"> You've completed <%= current_user.conquer_count %> puzzles. Make it <%=current_user.conquer_count + 1%> today.</h1>
 <% else %>
   <div id="welcomeblurb">
     <p>
