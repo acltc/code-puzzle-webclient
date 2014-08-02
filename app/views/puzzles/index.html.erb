@@ -1,9 +1,47 @@
-<h1>All Amazing Puzzles!</h1>
+<div id="hometitle">
+<h1>Welcome to Puzzler!</h1>
+</div>
+<br>
 
+<div id="welcomeblurb">
+  <p>
+    Puzzler is a master database of mathematical programming probem sets. The problems featured here at Puzzler are appropriate for novices and masters alike. <a href="users/sign_up">Join</a> our dynamic programming community today and start puzzling!
+  </p>
+<br>
+</div>
 
-  
+<div class="row" id="homepage-options">
+    <div id="A" class="col-sm-4 col-xs-12">
+      <div class="img">
+        <a target="_blank" href="/">
+          <%= image_tag "p.png", :width =>"100", :height =>"100", :title =>" ", :alt =>"view"%>
+        </a>
+        <div class="desc">About</div>
+      </div>
+    </div>
 
+    <div id="B" class="col-sm-4 col-xs-12">
+      <div class="img">
+        <a target="_blank" href="/">
+          <%= image_tag "thunder.png", :width =>"100", :height =>"100", :title =>" ", :alt =>"view"%>
+        </a>
+        <div class="desc">Rankings</div>
+      </div>
+    </div>
 
+    <div id="C" class="col-sm-4 col-xs-12">
+      <div class="img">
+        <a target="_blank" href="/">
+          <%= image_tag "dzone.png", :width =>"100", :height =>"100", :title =>" ", :alt =>"view"%>
+        </a>
+        <div class="desc">Random Puzzle</div>
+      </div>
+    </div>
+  </div>
+
+<!---->
+
+<h1>Check out all of the puzzles!</h1>
 
 <table class="table table-striped">
     <tr>
@@ -15,8 +53,8 @@
     <% @puzzles.each do |puzzle| %>
     <tr>
       <td><a href="<%= puzzle_path(puzzle.id) %>"><%= puzzle.name %></a></td>
-      <td>nil</td>
-      <td>nil</td>
+      <td>0</td>
+      <td>0</td>
       <td><%= puzzle.diff %>%</td>
     </tr>   
   <%end %>
