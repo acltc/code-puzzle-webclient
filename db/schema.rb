@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140728234825) do
     t.integer  "user_id"
     t.integer  "puzzle_id"
     t.boolean  "success"
+    
     t.datetime "created_at"
     t.datetime "updated_at"
   end

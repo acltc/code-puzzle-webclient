@@ -3,17 +3,21 @@
 </div>
 <br>
 
-<div id="welcomeblurb">
-  <p>
-    Puzzler is a master database of mathematical programming probem sets. The problems featured here at Puzzler are appropriate for novices and masters alike. <a href="users/sign_up">Join</a> our dynamic programming community today and start puzzling!
-  </p>
-<br>
-</div>
+<% if user_signed_in?  %>
+  <h1> You've completed <%= current_user.conquer_count %> puzzles. Make it <%=current_user.conquer_count + 1%> today.</h1>
+<% else %>
+  <div id="welcomeblurb">
+    <p>
+      Puzzler is a master database of mathematical programming probem sets. The problems featured here at Puzzler are appropriate for novices and masters alike. <a href="users/sign_up">Join</a> our dynamic programming community today and start puzzling!
+    </p>
+  <br>
+  </div>
+<% end %>
 
 <div class="row" id="homepage-options">
     <div id="A" class="col-sm-4 col-xs-12">
       <div class="img">
-        <a target="_blank" href="/">
+        <a href="/">
           <%= image_tag "p.png", :width =>"100", :height =>"100", :title =>" ", :alt =>"view"%>
         </a>
         <div class="desc">About</div>
@@ -22,7 +26,7 @@
 
     <div id="B" class="col-sm-4 col-xs-12">
       <div class="img">
-        <a target="_blank" href="/">
+        <a href="/">
           <%= image_tag "thunder.png", :width =>"100", :height =>"100", :title =>" ", :alt =>"view"%>
         </a>
         <div class="desc">Rankings</div>
@@ -31,7 +35,7 @@
 
     <div id="C" class="col-sm-4 col-xs-12">
       <div class="img">
-        <a target="_blank" href="<%= puzzle_path(rand(@puzzles.count + 1)) %>">
+        <a href="<%= puzzle_path(rand(@puzzles.count + 1)) %>">
           <%= image_tag "dzone.png", :width =>"100", :height =>"100", :title =>" ", :alt =>"view"%>
         </a>
         <div class="desc">Random Puzzle</div>
@@ -46,16 +50,18 @@
 <table class="table table-striped">
     <tr>
       <th>Name</th>
-      <th>Conquered</th>
-      <th>Your Attempts</th>
+      <th>Conquered?</th>
       <th>Puzzle Difficulty</th>
     </tr>
     <% @puzzles.each do |puzzle| %>
     <tr>
       <td><a href="<%= puzzle_path(puzzle.id) %>"><%= puzzle.name %></a></td>
-      <td>0</td>
-      <td>0</td>
-      <td><%= puzzle.diff %>%</td>
+      <% if puzzle.conquered?(current_user.id) %>
+        <td>YES!</td>
+      <% else %>
+        <td>Not yet...</td>
+      <% end %>
+      <td><%= puzzle.diff %></td>
     </tr>   
   <%end %>
 </table>

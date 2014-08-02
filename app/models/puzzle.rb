@@ -41,12 +41,24 @@ class Puzzle
     attempts = TrackSuccess.where(:puzzle_id => self.id).count.to_f
     success = TrackSuccess.where(:puzzle_id => self.id, :success => true).count.to_f
     if attempts == 0
-      return 0
+      return "uncharted territory"
     else 
       diff = success / attempts
         diff =diff * 100
         return diff.to_i
     end
+  end
+
+  def conquered?(user_id)
+      if 0 < TrackSuccess.where(:puzzle_id => self.id, :user_id => user_id, :success => true).count
+        return true
+      else
+        return false
+      end
+  end
+
+  def conquer_count(user_id)
+    TrackSuccess.where(:user_id => user_id, :success => true).count
   end
 
 end
