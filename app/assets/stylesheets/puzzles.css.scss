@@ -48,6 +48,12 @@ body {
   padding: 7px;
 }
 
+// Show Page Style
+
+.difficulty{
+  text-align: center;
+}
+
 #puzzle-directions {
   @include instructions-box;
 }
