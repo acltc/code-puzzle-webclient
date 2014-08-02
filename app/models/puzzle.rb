@@ -57,8 +57,4 @@ class Puzzle
       end
   end
 
-  def conquer_count(user_id)
-    TrackSuccess.where(:user_id => user_id, :success => true).count
-  end
-
 end
