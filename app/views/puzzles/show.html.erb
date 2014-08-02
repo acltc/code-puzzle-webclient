@@ -1,29 +1,35 @@
-<h5><a href="<%= puzzles_path %>">Back to puzzles</a></h5>
+<button class="btn btn-default"><a href="<%= puzzles_path %>">Back to puzzles</a></button>
 
-<%=@puzzle.puzzle_diff %>
+<!--puzzle_diff line from here -->
 
-<h1> <%=@puzzle.name%></h1>
 
-<h3><%=@puzzle.instructions %></h3>
+<h1 class="title"><%=@puzzle.name%></h1>
 
-<div class="form">
+<div id="puzzle-directions">
+  <p>
+    <%=@puzzle.instructions%>
+  </p>
+  <p class="answer-reminder">To submit an answer, you can either enter the numerical answer in the small "solution" box or enter the actual code you ran to get the answer in the larger "code solution" box. You only need to do one of the two to submit a solution</p>
+</div>
+
+<div class="form check-solution">
   <%= form_tag("/puzzles/#{@puzzle.id}/check_solution") do %>
     <fieldset>
       <%= label_tag :solution %>
       <%= text_field_tag :solution %>
 
-      <%= submit_tag "Check Solution" %>
+      <%= submit_tag "Check" %>
     </fieldset>
   <% end %>
 </div>
 
-<div class="form">
+<div class="form check-solution">
   <%= form_tag("/puzzles/#{@puzzle.id}/check_code_solution") do %>
     <fieldset>
       <%= label_tag :code_solution %>
       <%= text_area_tag :code_solution %>
 
-      <%= submit_tag "Check Solution" %>
+      <%= submit_tag "Check" %>
     </fieldset>
   <% end %>
 </div>

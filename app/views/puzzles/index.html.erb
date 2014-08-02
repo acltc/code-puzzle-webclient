@@ -31,7 +31,7 @@
 
     <div id="C" class="col-sm-4 col-xs-12">
       <div class="img">
-        <a target="_blank" href="<%= puzzle_path(rand(puzzles.count + 1)) %>">
+        <a target="_blank" href="<%= puzzle_path(rand(@puzzles.count + 1)) %>">
           <%= image_tag "dzone.png", :width =>"100", :height =>"100", :title =>" ", :alt =>"view"%>
         </a>
         <div class="desc">Random Puzzle</div>
