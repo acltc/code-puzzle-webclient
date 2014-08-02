@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root 'puzzles#home'
+  root 'puzzles#index'
   resources :puzzles
 
   post 'puzzles/:id/check_solution' => 'puzzles#check_solution'
