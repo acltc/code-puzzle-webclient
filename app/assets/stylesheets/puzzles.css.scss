@@ -39,14 +39,35 @@ body {
   margin-left: 600px;
 }
 
-#welcomeblurb 
-p {
+@mixin instructions-box{
   margin-right: 400px;
   margin-left: 400px;
   text-align: justify;
   font-size: 18px;
   border: 2px solid #8ec641;
   padding: 7px;
+}
+
+#puzzle-directions {
+  @include instructions-box;
+}
+
+#welcomeblurb 
+p {
+  @include instructions-box;
+}
+
+.title {
+  text-align: center;
+}
+
+.check-solution{
+  text-align: center;
+  padding: 15px;
+}
+
+.answer-reminder{
+  color: #8ec641;
 }
 
 #icons {
