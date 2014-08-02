@@ -7,6 +7,11 @@ class PuzzlesController < ApplicationController
   def about
   end
 
+  def rankings
+    @users = User.all
+    #(:order => (conquer_count * avg_puzzle_diff))
+  end
+
   def show
     @puzzle = Puzzle.find(params[:id])
    end
