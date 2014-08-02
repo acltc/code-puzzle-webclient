@@ -2,12 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#hometitle h1 {
+@mixin green-titles{
   font-size: 75px;
   font-weight: bold;
   color: #8ec641;
   text-align: center;
   text-shadow: 2px 2px #000000;
+}
+
+#hometitle h1 {
+  @include green-titles;
+}
+
+#abouttitle h1 {
+  @include green-titles;
 }
 
 body {
@@ -56,6 +64,10 @@ body {
 
 .difficulty{
   text-align: center;
+}
+
+#aboutblurb {
+  @include instructions-box;
 }
 
 #puzzle-directions {

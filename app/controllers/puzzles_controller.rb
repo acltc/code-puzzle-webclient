@@ -4,6 +4,9 @@ class PuzzlesController < ApplicationController
   def home
   end
 
+  def about
+  end
+
   def show
     @puzzle = Puzzle.find(params[:id])
    end

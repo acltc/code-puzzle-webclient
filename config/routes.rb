@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'puzzles#index'
   resources :puzzles
+  get '/about' => 'puzzles#about'
 
   post 'puzzles/:id/check_solution' => 'puzzles#check_solution'
   post 'puzzles/:id/check_code_solution' => 'puzzles#check_code_solution'
