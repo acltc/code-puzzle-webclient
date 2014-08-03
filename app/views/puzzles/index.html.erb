@@ -56,7 +56,7 @@
     <% @puzzles.each do |puzzle| %>
     <tr>
       <td><a href="<%= puzzle_path(puzzle.id) %>"><%= puzzle.name %></a></td>
-      <% if puzzle.conquered?(current_user.id) %>
+      <% if user_signed_in? && puzzle.conquered?(current_user.id) %>
         <td>YES!</td>
       <% else %>
         <td>Not yet...</td>
