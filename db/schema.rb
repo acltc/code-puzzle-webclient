@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728234825) do
+ActiveRecord::Schema.define(version: 20140803043247) do
 
   create_table "track_successes", force: true do |t|
     t.integer  "user_id"
     t.integer  "puzzle_id"
     t.boolean  "success"
-    
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140728234825) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "score"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

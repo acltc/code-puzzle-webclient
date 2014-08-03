@@ -8,8 +8,9 @@ class PuzzlesController < ApplicationController
   end
 
   def rankings
-    @users = User.all
-    #(:order => (conquer_count * avg_puzzle_diff))
+    users_unsorted = User.all
+    least_to_greatest = users_unsorted.sort_by {|user| user.score}
+    @users = least_to_greatest.reverse
   end
 
   def show

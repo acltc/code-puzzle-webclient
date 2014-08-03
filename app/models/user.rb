@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
     end
     sum / count
   end
+
+  def score
+    conquer_count * avg_puzzle_diff
+  end
 end
