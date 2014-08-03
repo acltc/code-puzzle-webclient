@@ -7,15 +7,28 @@
 
 <table class="table table-striped">
     <tr>
+      <th>Rank</th>
       <th>Username (first 5 chars of email)</th>
       <th>Number of Puzzles Conquered</th>
       <th>Average Difficulty of Puzzles Conquered</th>
     </tr>
+  <% count = 0 %>
   <% @users.each do |user| %>
+    <% count += 1 %>
+    <% if user == current_user %>
     <tr>
+      <td><%= count %></td>
       <td><%= user.username %></td>
       <td><%= user.conquer_count %></td>
       <td><%= user.avg_puzzle_diff %></td>
-    </tr>   
+    </tr> 
+    <% else %>
+    <tr class="this-is-me"> 
+      <td><%= count %></td>
+      <td><%= user.username %></td>
+      <td><%= user.conquer_count %></td>
+      <td><%= user.avg_puzzle_diff %></td>
+    </tr>  
+    <% end %> 
   <%end %>
 </table>
