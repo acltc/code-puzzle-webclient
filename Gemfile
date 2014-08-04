@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 # Use mysql as the database for Active Record
 gem 'mysql2'
+gem 'mysql2psql'
 
 gem 'unirest', '1.1.2'
 
