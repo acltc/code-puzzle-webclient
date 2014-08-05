@@ -5,6 +5,11 @@ gem 'rails', '4.1.1'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
+
 gem 'unirest', '1.1.2'
 
 gem 'devise'
