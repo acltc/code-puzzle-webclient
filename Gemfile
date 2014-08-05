@@ -13,7 +13,7 @@ end
 gem 'unirest', '1.1.2'
 
 gem 'devise'
-
+gem 'dotenv-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass'

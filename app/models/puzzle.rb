@@ -13,12 +13,12 @@ class Puzzle
   end
 
  def self.find(id)
-    hash = Unirest.get("http://localhost:3000/api/v1/puzzles/#{id}.json", :headers => {"Accept"=>"application/json"}).body
+    hash = Unirest.get("#{ENV['API_HOST']}/puzzles/#{id}.json", :headers => {"Accept"=>"application/json"}).body
     return Puzzle.new(hash)
   end
 
   def self.all
-    array = Unirest.get("http://localhost:3000/api/v1/puzzles.json", headers:{ "Accept" => "application/json" }).body
+    array = Unirest.get("#{ENV['API_HOST']}/puzzles.json", headers:{ "Accept" => "application/json" }).body
     puzzles = []
     array.each do |puzzle|
       puzzles << Puzzle.new(puzzle)
@@ -27,7 +27,7 @@ class Puzzle
   end
 
   def self.search(search_term)
-    url = "http://localhost:3000/api/v1/puzzles.json"
+    url = "#{ENV['API_HOST']}/puzzles.json"
     url = url + "?q=#{search_term}"
     array = Unirest.get(url, headers:{ "Accept" => "application/json" }).body
     puzzles = []

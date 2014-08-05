@@ -26,7 +26,7 @@ class PuzzlesController < ApplicationController
   end
 
   def create
-    @puzzle = Unirest.post("http://localhost:3000/api/v1/puzzles.json",
+    @puzzle = Unirest.post("#{ENV['API_HOST']}/puzzles.json",
                   headers: {"Accept" => "application/json"},
                   parameters: { :puzzle => 
                                 {
@@ -40,7 +40,7 @@ class PuzzlesController < ApplicationController
   end
 
   def check_solution
-    hash = Unirest.get("http://localhost:3000/api/v1/puzzles/solutions/#{params[:id]}.json?solution=#{params[:solution]}", :headers => {"Accept" => "application/json"}).body
+    hash = Unirest.get("#{ENV['API_HOST']}/puzzles/solutions/#{params[:id]}.json?solution=#{params[:solution]}", :headers => {"Accept" => "application/json"}).body
     if hash["response"].downcase == "correct"
       flash[:success] = "That's the correct answer!"
       TrackSuccess.create(:user_id=> current_user.id, :puzzle_id => params[:id], :success => true)
@@ -55,7 +55,7 @@ class PuzzlesController < ApplicationController
 
   def check_code_solution
    @code_solution = eval(params[:code_solution]) 
-    hash = Unirest.get("http://localhost:3000/api/v1/puzzles/solutions/#{params[:id]}.json?solution=#{@code_solution}", :headers => {"Accept" => "application/json"}).body
+    hash = Unirest.get("#{ENV['API_HOST']}/puzzles/solutions/#{params[:id]}.json?solution=#{@code_solution}", :headers => {"Accept" => "application/json"}).body
     puts @code_solution
     puts "00000000000000000000"
     if hash["response"].downcase == "correct"
