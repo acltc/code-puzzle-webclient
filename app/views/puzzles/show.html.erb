@@ -2,17 +2,19 @@
 
 <h1 class="title"><%=@puzzle.name%></h1>
 <h3 class="difficulty"> Puzzle Difficulty: <%= @puzzle.diff %><h3>
-<% if @puzzle.conquered?(current_user.id) %>
-  <h4 class="center">You've solved this puzzle before.<h4>
-<% else %>
-  <h4 class="center">You haven't solved this puzzle yet. No time like the present!</h4>
+<% if current_user %>
+  <% if @puzzle.conquered?(current_user.id) %>
+    <h4 class="center">You've solved this puzzle before.<h4>
+  <% else %>
+    <h4 class="center">You haven't solved this puzzle yet. No time like the present!</h4>
+  <% end %>
 <% end %>
 
 <div id="puzzle-directions">
   <p>
     <%=@puzzle.instructions%>
   </p>
-  <p class="answer-reminder">To submit an answer, you can either enter the numerical answer in the small "solution" box or enter the actual code you ran to get the answer in the larger "code solution" box. You only need to do one of the two to submit a solution</p>
+  <p class="answer-reminder">To submit an answer, you can either enter the numerical answer in the small "solution" box or enter the actual code you ran to get the answer in the larger "code solution" box. You only need to do one of the two to submit a solution.</p>
 </div>
 
 <div class="form check-solution">
